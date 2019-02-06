@@ -55,6 +55,8 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Sayının çift sayıda basamağı var.");
             }
+
+            ////hgfjhfvjhfjkhfyrtku
         }
     }
 }

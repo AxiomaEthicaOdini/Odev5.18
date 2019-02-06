@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace DBConn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = "Data Source=03-04\\SQLEXPRESS;Initial Catalog = Northwind;Integrated Security=True";
+            cn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT ProductName FROM Products";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cn;
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while(dr.Read())
+            {
+                Console.WriteLine(dr.GetString(0));
+            }
+            dr.Close();
+            cn.Close();
+        }
+    }
+}
